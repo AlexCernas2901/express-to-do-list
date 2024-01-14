@@ -1,0 +1,40 @@
+{
+  "name": "express-to-do-list",
+  "version": "1.0.0",
+  "description": "simple express to do list",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexCernas2901/express-to-do-list.git"
+  },
+  "keywords": [
+    "express",
+    "api"
+  ],
+  "author": "Angel Alexis Cernas Hernandez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlexCernas2901/express-to-do-list/issues"
+  },
+  "homepage": "https://github.com/AlexCernas2901/express-to-do-list#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.0.4",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "morgan": "^1.10.0",
+    "nodemon": "^3.0.2",
+    "standard": "^17.1.0"
+  },
+  "eslintConfig": {
+    "extends": "standard"
+  }
+}
