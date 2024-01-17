@@ -75,7 +75,7 @@ export const deleteTask = async (req, res) => {
         message: taskMessages.taskNotFound
       })
     }
-    res.json({
+    res.status(204).json({
       message: taskMessages.taskDeleted
     })
   } catch (error) {

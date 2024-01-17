@@ -2,7 +2,8 @@
 export const authMessages = {
   badCredentials: 'Invalid credentials',
   succesfullCreated: 'User created successfully',
-  userNotFound: 'User not found'
+  userNotFound: 'User not found',
+  userAlreadyExists: 'User already exists'
 }
 
 export const middlewareMessages = {
@@ -20,7 +21,7 @@ export const authSchemaMessages = {
   usernameString: 'Username must must be only letters',
   usernameMin: 'Username me at least 6 characters',
   usernameMax: 'Username me at most 12 characters',
-  emailString: 'Email must be an email',
+  emailString: 'Invalid email format',
   passwordMin: 'Password must be at least 8 characters',
   passwordMax: 'Password must be at most 16 characters'
 }

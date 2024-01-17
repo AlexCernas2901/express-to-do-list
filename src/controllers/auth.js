@@ -2,6 +2,8 @@ import User from '../models/user.js'
 import bcrypt from 'bcryptjs'
 import { createAccessToken } from '../utils.js/jwt.js'
 import { authMessages } from '../messages.js'
+import jwt from 'jsonwebtoken'
+import { SECRET_KEY } from '../../consts.js'
 
 export const login = async (req, res) => {
   const { email, password } = req.body
@@ -9,16 +11,12 @@ export const login = async (req, res) => {
   try {
     const userFound = await User.findOne({ email })
     if (!userFound) {
-      return res.status(400).json({
-        message: authMessages.badCredentials
-      })
+      return res.status(400).json([authMessages.badCredentials])
     }
 
     const matchPassword = await bcrypt.compare(password, userFound.password)
     if (!matchPassword) {
-      return res.status(401).json({
-        message: authMessages.badCredentials
-      })
+      return res.status(401).json([authMessages.badCredentials])
     }
 
     const token = await createAccessToken({ id: userFound._id })
@@ -40,6 +38,15 @@ export const register = async (req, res) => {
   const { username, email, password } = req.body
 
   try {
+    const userNameFound = await User.findOne({ username })
+    if (userNameFound) {
+      return res.status(400).json([authMessages.userAlreadyExists])
+    }
+
+    const userEmailFound = await User.findOne({ email })
+    if (userEmailFound) {
+      return res.status(400).json([authMessages.userAlreadyExists])
+    }
     const hashPassword = await bcrypt.hash(password, 10)
     const newUser = new User({
       username,
@@ -82,5 +89,23 @@ export const profile = async (req, res) => {
     id: userFound._id,
     username: userFound.username,
     email: userFound.email
+  })
+}
+
+export const verifyToken = async (req, res) => {
+  const { token } = req.cookies
+  if (!token) return res.send(false)
+
+  jwt.verify(token, SECRET_KEY, async (error, user) => {
+    if (error) return res.sendStatus(401)
+
+    const userFound = await User.findById(user.id)
+    if (!userFound) return res.sendStatus(401)
+
+    return res.json({
+      id: userFound._id,
+      username: userFound.username,
+      email: userFound.email
+    })
   })
 }
