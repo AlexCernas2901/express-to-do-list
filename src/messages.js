@@ -1,32 +1,32 @@
-// Mensajes de error y exito para los controladores
+// Mensajes de error y éxito para los controladores
 export const authMessages = {
-  badCredentials: 'Invalid credentials',
-  succesfullCreated: 'User created successfully',
-  userNotFound: 'User not found',
-  userAlreadyExists: 'User already exists'
+  badCredentials: 'Credenciales inválidas',
+  succesfullCreated: 'Usuario creado exitosamente',
+  userNotFound: 'Usuario no encontrado',
+  userAlreadyExists: 'El usuario ya existe'
 }
 
 export const middlewareMessages = {
-  unauthorized: 'Unauthorized'
+  unauthorized: 'No autorizado'
 }
 
 export const taskMessages = {
-  serverError: 'Internal server error',
-  taskNotFound: 'Task not found',
-  taskDeleted: 'Task deleted successfully',
-  taskUpdated: 'Task updated successfully'
+  serverError: 'Error interno del servidor',
+  taskNotFound: 'Tarea no encontrada',
+  taskDeleted: 'Tarea eliminada exitosamente',
+  taskUpdated: 'Tarea actualizada exitosamente'
 }
 
 export const authSchemaMessages = {
-  usernameString: 'Username must must be only letters',
-  usernameMin: 'Username me at least 6 characters',
-  usernameMax: 'Username me at most 12 characters',
-  emailString: 'Invalid email format',
-  passwordMin: 'Password must be at least 8 characters',
-  passwordMax: 'Password must be at most 16 characters'
+  usernameString: 'El nombre de usuario debe contener solo letras',
+  usernameMin: 'El nombre de usuario debe tener al menos 6 caracteres',
+  usernameMax: 'El nombre de usuario debe tener como máximo 12 caracteres',
+  emailString: 'Formato de correo electrónico inválido',
+  passwordMin: 'La contraseña debe tener al menos 8 caracteres',
+  passwordMax: 'La contraseña debe tener como máximo 16 caracteres'
 }
 
 export const databaseMessages = {
-  connectionError: 'Error connecting to database',
-  connectionSuccess: 'Database connection established'
+  connectionError: 'Error al conectar con la base de datos',
+  connectionSuccess: 'Conexión a la base de datos establecida exitosamente'
 }
